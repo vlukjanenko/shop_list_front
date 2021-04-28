@@ -1,0 +1,25 @@
+<mat-list>
+        <mat-list-item class="lsit-element" *ngFor="let product of products; let i = index;"
+         [ngStyle]="{'background-color': (i % 2) ? 'Ivory' : 'LightGray'}"
+        >
+          <button
+
+          [ngStyle]="{'text-decoration': (product.checked) ? 'line-through' : 'none'}"
+          class="button-list-item"
+
+          mat-button [disabled]="!!show.length" *ngIf="!show[product.id]" (click)="change(product.id)">
+          {{ product.title }}     {{ product.amount }}
+           </button>
+          <app-edit-product *ngIf="show[product.id]" [product]="product" (cancel)="show=$event"></app-edit-product>
+          <span class="spacer"></span>
+          <div>
+                <button mat-button [disabled]="!!show.length" (click)="setProduct(product)">
+                 {{ product.checked ? "Куплено" : "Не куплено" }}
+                </button>
+                <button mat-button [disabled]="!!show.length" (click)="delProduct(product)">
+                  Удалить
+                </button>
+          </div>
+        </mat-list-item>
+</mat-list>
+

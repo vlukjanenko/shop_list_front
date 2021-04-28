@@ -1,0 +1,25 @@
+<form
+
+fxLayout="column"
+fxLayoutGap="10px"
+fxLayoutAlign="center center"
+
+novalidate #productForm="ngForm" (ngSubmit)="onSubmit()">
+<div fxLayout="raw"
+fxLayout.sm="column"
+fxLayout.xs="column"
+fxLayoutGap="10px">
+    <mat-form-field>
+      <input matInput placeholder="title" type="text"
+      [(ngModel)]="product.title" name="title" #title="ngModel" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="amount" type="number"
+      [(ngModel)]="product.amount" name="amount" #color="ngModel" required>
+    </mat-form-field>
+    </div>
+    <div fxLayout="raw wrap">
+    <button mat-button type="button" (click)="abortAdd()" >Отменить</button>
+    <button mat-button type="submit" [disabled]="productForm.form.invalid">Добавить</button>
+  </div>
+</form>

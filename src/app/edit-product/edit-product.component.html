@@ -1,0 +1,11 @@
+<form  fxLayout="raw wrap"
+novalidate #editForm="ngForm" (ngSubmit)="confirmEdit()">
+<!-- <mat-form-field appearance="outline"> -->
+    <input type="text" [(ngModel)] = "newProduct.title" name="title" required>
+    <input type="number" [(ngModel)] = "newProduct.amount" name="amount" required>
+    <input type="checkbox" [(ngModel)] = "newProduct.checked" name="checked">
+<!--  </mat-form-field> -->
+  <button [disabled]="editForm.form.invalid" mat-button >OK</button>
+  <button mat-button (click)="cancelEdit()">Отменить</button>
+</form>
+

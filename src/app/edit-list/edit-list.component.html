@@ -1,0 +1,8 @@
+<form  fxLayout="raw wrap"
+novalidate #editForm="ngForm" (ngSubmit)="confirmEdit()">
+<!-- <mat-form-field appearance="outline"> -->
+    <input type="text" [(ngModel)] = "newList.title" name="title" required>
+<!--  </mat-form-field> -->
+  <button [disabled]="editForm.form.invalid" mat-button >OK</button>
+  <button mat-button (click)="cancelEdit()">Отменить</button>
+</form>

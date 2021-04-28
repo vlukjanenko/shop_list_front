@@ -1,0 +1,6 @@
+<div *ngIf="!currentUser">
+<p>Войдите</p>
+</div>
+<div *ngIf="currentUser">
+  <p>{{ currentUser.email }}</p>
+</div>

@@ -1,0 +1,15 @@
+  <mat-toolbar color="primary" fxLayout="raw" >
+    <app-menu></app-menu>
+  <span>{{ title }}</span>
+  <div *ngIf="contextMenuItems && contextMenuItems.length > 1">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let menuItem of contextMenuItems" (click)='onClick(menuItem)'> {{ menuItem }}</button>
+      </mat-menu>
+  </div>
+  <div *ngIf="contextMenuItems && contextMenuItems.length === 1">
+      <button mat-raised-button (click)='onClick(contextMenuItems[0])'> {{ contextMenuItems[0] }}</button>
+  </div>
+</mat-toolbar>

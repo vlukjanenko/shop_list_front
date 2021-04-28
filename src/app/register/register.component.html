@@ -1,0 +1,25 @@
+<form
+
+fxLayout="column"
+fxLayoutGap="10px"
+fxLayoutAlign="center center"
+
+novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
+<div fxLayout="raw"
+fxLayout.sm="column"
+fxLayout.xs="column"
+fxLayoutGap="10px">
+    <mat-form-field>
+      <input matInput placeholder="Email" type="email"
+      [(ngModel)]="user.email" name="email" #email="ngModel" required ngModel email>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Password" type="password"
+      [(ngModel)]="user.password" name="password" #password="ngModel" required>
+    </mat-form-field>
+</div>
+  <div fxLayout="raw wrap">
+  <a mat-button routerLink="/login">Переход к входу</a>
+    <button mat-button type="submit" [disabled]="loginForm.form.invalid">Зарегистрироваться</button>
+  </div>
+</form>

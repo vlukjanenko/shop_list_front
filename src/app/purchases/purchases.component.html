@@ -1,0 +1,20 @@
+<mat-list>
+      <mat-list-item fxLayout="column" class="lsit-element" *ngFor="let list of lists; let i = index;">
+        <button class="button-list-item" mat-button [disabled]="!!show.length" *ngIf="!show[list.id]" (click)="goToProducts(list)">
+        {{ list.title }}
+         </button>
+         <app-edit-list *ngIf="show[list.id]" [list]="list" (cancel)="show=$event"></app-edit-list>
+         <span class="spacer"></span>
+        <div fxLayout="raw">
+              <button mat-button [disabled]="!!show.length" (click)="change(list.id)">
+                Изменить
+              </button>
+              <button mat-button [disabled]="!!show.length" >
+                Поделиться
+              </button>
+              <button mat-button [disabled]="!!show.length" (click)="delList(list.id)">
+                Удалить
+              </button>
+        </div>
+      </mat-list-item>
+</mat-list>

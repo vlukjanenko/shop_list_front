@@ -1,0 +1,12 @@
+<button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" [matMenuTriggerFor]="menu">
+  <mat-icon>menu</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <mat-toolbar><app-user-info></app-user-info></mat-toolbar>
+  <div *ngIf="user">
+  <button mat-menu-item routerLink="/purchases">Покупки</button>
+  <button mat-menu-item>Друзья</button>
+  <button mat-menu-item>Профиль</button>
+  <button mat-menu-item (click)="logout()">Выйти</button>
+</div>
+</mat-menu>

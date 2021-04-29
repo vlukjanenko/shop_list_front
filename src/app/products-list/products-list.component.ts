@@ -24,15 +24,18 @@ export class ProductsListComponent implements OnInit {
 
   ngOnInit(): void {
     console.log("Come to products list")
-    this.header.setMenu(["Добавить"]);
+    this.header.setMenu(["Добавить пункт"]);
     this.header.item$.subscribe(item => {
-      if (item === "Добавить") {
+      if (item === "Добавить пункт") {
         console.log("перед переходом в добавление продукта")
-        this.router.navigate(['/addProduct']);
+        this.router.navigate(['/addProduct', this.list.id]);
       }
     })
-    this.listService.currentList$
-      .pipe(switchMap((list: List)=> {
+    this.route.params
+      .pipe(switchMap((params: Params) => {
+        return this.listService.getList(params['id'])
+      }))
+      .pipe(switchMap((list: List) => {
         this.list = list;
         this.header.setTitle(this.list.title);
         return this.listService.getListItems(this.list.id)
@@ -57,7 +60,8 @@ export class ProductsListComponent implements OnInit {
 
   setProduct(product: Product) {
     product.checked = !product.checked;
-    this.listService.updateProduct(product);
+    this.listService.updateProduct(product)
+    .subscribe();
   }
 
 }

@@ -57,8 +57,8 @@ export class PurchasesComponent implements OnInit { //отображать ме�
     );
   }
 
-  goToProducts(list: List) {
+ /*  goToProducts(list: List) {
     this.listService.setCurrentList(list);
-    this.router.navigate(['products']);
-  }
+    this.router.navigate(['products',]);
+  } */
 }

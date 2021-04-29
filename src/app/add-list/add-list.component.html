@@ -13,9 +13,33 @@ fxLayoutGap="10px">
       <input matInput placeholder="title" type="text"
       [(ngModel)]="list.title" name="title" #title="ngModel" required>
     </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="color" type="number"
+    <!-- <mat-form-field>
+      <input matInput placeholder="color" type="text"
       [(ngModel)]="list.color" name="color" #color="ngModel" required>
+    </mat-form-field> -->
+    <mat-form-field appearance="fill"
+    [ngStyle]="{'background-color': list.color}"
+    >
+      <mat-label>Цвет списка</mat-label>
+      <mat-select [(ngModel)]="list.color" name="color" #color="ngModel" value="white">
+        <mat-option value="LightCoral"
+        [ngStyle]="{'background-color': 'LightCoral'}"
+        >
+          Красный
+        </mat-option>
+        <mat-option value="Gold"
+        [ngStyle]="{'background-color': 'Gold'}"
+        >
+          Желтый
+        </mat-option>
+        <mat-option value="PaleGreen"
+        [ngStyle]="{'background-color': 'PaleGreen'}">
+          Зеленый
+        </mat-option>
+        <mat-option value="white">
+          Белый
+        </mat-option>
+      </mat-select>
     </mat-form-field>
     </div>
     <div fxLayout="raw wrap">

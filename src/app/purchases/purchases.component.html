@@ -1,6 +1,11 @@
 <mat-list>
-      <mat-list-item fxLayout="column" class="lsit-element" *ngFor="let list of lists; let i = index;">
-        <button class="button-list-item" mat-button [disabled]="!!show.length" *ngIf="!show[list.id]" (click)="goToProducts(list)">
+      <mat-list-item fxLayout="column" class="lsit-element" *ngFor="let list of lists; let i = index;"
+       [ngStyle]="{'background-color': list.color}"
+      >
+        <button class="button-list-item" mat-button [disabled]="!!show.length" *ngIf="!show[list.id]"
+        [routerLink]="['products', list.id]"
+
+        >
         {{ list.title }}
          </button>
          <app-edit-list *ngIf="show[list.id]" [list]="list" (cancel)="show=$event"></app-edit-list>

@@ -23,6 +23,7 @@ export class AddListComponent implements OnInit {
   ngOnInit(): void {
     this.header.setTitle("Создание нового списка покупок");
     this.header.setMenu([]);
+    this.list.color="white";
   }
   onSubmit() {
     this.list.dat = new Date().toString();

@@ -31,4 +31,9 @@ body {
 
 .button-list-item {
   height: 100%;
+  overflow: hidden!important;
+}
+
+.mat-list-base {
+  padding: 0!important;
 }

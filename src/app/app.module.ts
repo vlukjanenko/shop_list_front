@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSelectModule } from '@angular/material/select'
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './services/auth.service';
@@ -28,6 +29,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
+
 
 @NgModule({
   declarations: [
@@ -56,6 +58,7 @@ import { AddProductComponent } from './add-product/add-product.component';
     MatCheckboxModule,
     MatListModule,
     MatButtonModule,
+    MatSelectModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule

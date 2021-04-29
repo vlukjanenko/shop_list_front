@@ -13,14 +13,14 @@ export class AuthService {
 
   //работа с токеном.
   private token: string;
-  private tokenSubject = new BehaviorSubject<string>(null); //можно считываеть из локал стореджа
+  private tokenSubject = new BehaviorSubject<string>(localStorage.getItem('token')); //можно считываеть из локал стореджа
   public  token$ = this.tokenSubject.asObservable();
   private subscription = this.token$.subscribe(newtoken => {
     this.token = newtoken;
   });
 
   //работа с текущим юзером.
-  private userSubject = new BehaviorSubject<User>(null); //можно считываеть из локал стореджа
+  private userSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser'))); //можно считываеть из локал стореджа
   public currentUser = this.userSubject.asObservable();
 
   //при регистрации или логине обновляем токен и юзера
@@ -37,8 +37,8 @@ export class AuthService {
       let user: User = <User>res['user'];
       let token: string = <string>res['token'];
       if (user && token) {
-        /* localStorage.setItem('currentUser', JSON.stringify(user));
-        localStorage.setItem('token', JSON.stringify(token)); */
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('token', token);
         this.updateCurrentUser(user, token);
         console.log(this.token);
         return user;
@@ -55,8 +55,8 @@ export class AuthService {
       let user: User = <User>res['user'];
       let token: string = <string>res['token'];
       if (user && token) {
-        /* localStorage.setItem('currentUser', JSON.stringify(user));
-        localStorage.setItem('token', JSON.stringify(token)); */
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        localStorage.setItem('token', token);
         this.updateCurrentUser(user, token);
 
         return user;
@@ -73,8 +73,8 @@ export class AuthService {
       }).subscribe();
     }
     this.updateCurrentUser(null, null);
-   /*  localStorage.removeItem('currentUser');
-    localStorage.removeItem('token'); */
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('token');
   }
 
   getCurrentUser(): Observable<number> {

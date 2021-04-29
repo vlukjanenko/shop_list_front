@@ -11,9 +11,9 @@ export const routes: Routes = [
 
   { path: '', component: PurchasesComponent, canActivate: [AuthGuard]},
   { path: 'addlist', component: AddListComponent, canActivate: [AuthGuard]},
-  { path: 'addProduct', component: AddProductComponent, canActivate: [AuthGuard]},
+  { path: 'addProduct/:id', component: AddProductComponent, canActivate: [AuthGuard]},
   // в апи нет функции для получения списка по ид. В сервисе будем получать
-  { path: 'products', component: ProductsListComponent, canActivate: [AuthGuard]},
+  { path: 'products/:id', component: ProductsListComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: '**', redirectTo: '' }

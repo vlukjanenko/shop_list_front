@@ -1,6 +1,6 @@
 export class List {
   id: number;
   title: string;
-  color: number;
+  color: string;
   dat: string;
 }

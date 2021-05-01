@@ -1,32 +1,34 @@
-<form  fxLayout="raw wrap"
+<form  fxLayout="raw"
 novalidate #editForm="ngForm" (ngSubmit)="confirmEdit()">
 <!-- <mat-form-field appearance="outline"> -->
     <input type="text" [(ngModel)] = "newList.title" name="title" required>
 <!--  </mat-form-field> -->
-<mat-form-field appearance="fill"
+<!-- <mat-form-field appearance="fill"
 [ngStyle]="{'background-color': newList.color}"
->
-  <mat-label>Цвет списка</mat-label>
-  <mat-select [(ngModel)]="newList.color" name="color" #color="ngModel" value="white">
+> -->
+  <!-- <mat-label>Цвет списка</mat-label> -->
+  <mat-select [(ngModel)]="newList.color" name="color" #color="ngModel" value="white"
+  [ngStyle]="{'background-color': newList.color}"
+  >
     <mat-option value="LightCoral"
     [ngStyle]="{'background-color': 'LightCoral'}"
     >
-      Красный
+
     </mat-option>
     <mat-option value="Gold"
     [ngStyle]="{'background-color': 'Gold'}"
     >
-      Желтый
+
     </mat-option>
     <mat-option value="PaleGreen"
     [ngStyle]="{'background-color': 'PaleGreen'}">
-      Зеленый
+
     </mat-option>
     <mat-option value="white">
-      Белый
+
     </mat-option>
   </mat-select>
-</mat-form-field>
+<!-- </mat-form-field> -->
   <button [disabled]="editForm.form.invalid" mat-button >OK</button>
   <button mat-button (click)="cancelEdit()">Отменить</button>
 </form>

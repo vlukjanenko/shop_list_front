@@ -1,0 +1,49 @@
+
+<mat-accordion>
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Поиск новых друзей
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+
+    <form
+    fxLayout="column"
+    fxLayoutGap="10px"
+    fxLayoutAlign="center center"
+
+    novalidate #findFriend="ngForm" (ngSubmit)="onSubmit()">
+    <div fxLayout="raw"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutGap="10px">
+        <mat-form-field>
+          <input matInput placeholder="Почта искомого друга" type="text"
+          [(ngModel)]="search" name="search" #s="ngModel" required>
+        </mat-form-field>
+        </div>
+        <div fxLayout="raw wrap">
+        <button mat-button type="submit" [disabled]="findFriend.form.invalid">Найти</button>
+      </div>
+    </form>
+    <mat-list>
+      <div *ngIf="searchResult">
+      <p>Результаты поиска</p>
+      <p *ngIf="!searchResult.length"> Кандидатов нет</p>
+      </div>
+      <mat-list-item *ngFor="let user of searchResult" >
+        <p *ngIf="user"> {{user.email}} <button (click)="addF(user.id)">Добавить в друзья</button> </p>
+      </mat-list-item>
+    </mat-list>
+
+
+  </mat-expansion-panel>
+</mat-accordion>
+
+<h2>Мои друзья:</h2>
+<mat-list>
+  <mat-list-item *ngFor="let user of myFriends">
+    <p> {{user.email}} <button (click)="delF(user.id)">Удалить из друзей</button></p>
+  </mat-list-item>
+</mat-list>

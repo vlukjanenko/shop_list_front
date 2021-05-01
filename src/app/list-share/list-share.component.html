@@ -1,0 +1,12 @@
+<h2>Друзья с кем ещё не поделились</h2>
+<mat-list>
+  <mat-list-item *ngFor="let user of friends">
+    {{ user.email }}<button (click)="shareList(list.id, user)">Поделиться</button>
+  </mat-list-item>
+</mat-list>
+<h2>Пользователи у которых тоже есть доступ к списку</h2>
+<mat-list>
+  <mat-list-item *ngFor="let user of owners">
+    {{ user.email }}
+  </mat-list-item>
+</mat-list>

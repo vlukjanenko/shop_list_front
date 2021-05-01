@@ -14,7 +14,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import { MatSelectModule } from '@angular/material/select'
+import { MatSelectModule } from '@angular/material/select';
+import {MatExpansionModule} from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './services/auth.service';
@@ -29,6 +30,8 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { EditListComponent } from './edit-list/edit-list.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { FriendsComponent } from './friends/friends.component';
+import { ListShareComponent } from './list-share/list-share.component';
 
 
 @NgModule({
@@ -44,7 +47,9 @@ import { AddProductComponent } from './add-product/add-product.component';
     ProductsListComponent,
     EditListComponent,
     EditProductComponent,
-    AddProductComponent
+    AddProductComponent,
+    FriendsComponent,
+    ListShareComponent
   ],
   imports: [
     BrowserModule,
@@ -59,6 +64,7 @@ import { AddProductComponent } from './add-product/add-product.component';
     MatListModule,
     MatButtonModule,
     MatSelectModule,
+    MatExpansionModule,
     FormsModule,
     HttpClientModule,
     AppRoutingModule

@@ -32,6 +32,7 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { FriendsComponent } from './friends/friends.component';
 import { ListShareComponent } from './list-share/list-share.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ListShareComponent } from './list-share/list-share.component';
     EditProductComponent,
     AddProductComponent,
     FriendsComponent,
-    ListShareComponent
+    ListShareComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

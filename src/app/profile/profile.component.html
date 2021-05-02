@@ -1,0 +1,34 @@
+<form
+
+fxLayout="column"
+fxLayoutGap="10px"
+fxLayoutAlign="center center"
+
+novalidate #profileForm="ngForm" (ngSubmit)="onSubmit()">
+  <div fxLayout="raw"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutGap="10px">
+    <mat-form-field>
+      <input matInput placeholder="Имя пользователя" type="text"
+      [(ngModel)]="user.name" name="name" #name="ngModel" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Телефон" type="text"
+      [(ngModel)]="user.phone" name="phone" #phone="ngModel" required>
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Email" type="email"
+        [(ngModel)]="user.email" name="email" #email="ngModel" required ngModel email>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Old password" type="password"
+        [(ngModel)]="user.password" name="password" #password="ngModel" required >
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="New password" type="password"
+        [(ngModel)]="newPassword" name="newPassword">
+      </mat-form-field>
+  </div>
+  <button mat-button type="submit" [disabled]="profileForm.form.invalid">Обновить</button>
+</form>
